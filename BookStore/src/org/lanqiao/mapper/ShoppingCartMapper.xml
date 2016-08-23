@@ -38,7 +38,7 @@
  		
  	</resultMap>
  	<!-- 购物车 -->
- 	<select id="getShoppingCart" resultMap="getShoppingCartResultMap" parameterType="ShoppingCart">
+ 	<select id="getShoppingCartByUserId" resultMap="getShoppingCartResultMap" parameterType="ShoppingCart">
  	<![CDATA[
  		select sj.sellername,p.productsimage,p.productname,p.productmoney,s.shopping_cart_quantity from products p left join seller sj on(p.SELLERID=sj.SELLERID) left join shopping_cart s on(s.productid=p.productid) where s.userId=#{userId,jdbcType=INTEGER}
  	]]>
