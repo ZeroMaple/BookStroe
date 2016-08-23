@@ -1,0 +1,15 @@
+.cetent{width: 52%; height: 500px; background-repeat: repeat-x; margin-top: 20px; }
+.rigth{width: 48%; height: 700px;  float:right; margin-left: 700px; background:  url(../img/rigth.png); background-repeat: repeat-x;}
+.cetent1{ height: 56px; width:403px ; margin-left: 260px; margin-top: 30px; border:solid 1px #e3e3e3;}
+.cetent2{ height: 56px; width:403px ; margin-left: 260px; margin-top: 35px; border:solid 1px #e3e3e3;}
+.cetent3{ height: 56px; width:403px ; margin-left: 260px; margin-top: 35px; border:solid 1px #e3e3e3;}
+.cetent4{ height: 56px; width:403px ; margin-left: 260px; margin-top: 35px; border:solid 1px #e3e3e3;}
+.cetent8{height: 56px; width:403px ; margin-left: 260px; margin-top: 35px; }
+.cetent9{ height: 56px; width:403px ; margin-left: 260px; margin-top: 0px;   background-color:#ee2222 ; font-style: normal; color: white; font-size: 20px; }
+.myiput{ height: 54px; width:310px ; border-style: none;}
+.end{ width: 100%;height: 130px;  background:url(../img/end.png);}
+label{color:#7d7d7d; font-size:14px; font-weight:bold;}
+select{width: 84px; height: 56px;font-size:14px; font-weight:bold;color:#7d7d7d; }
+a{text-decoration: none;}
+p{  text-align: center;}
+

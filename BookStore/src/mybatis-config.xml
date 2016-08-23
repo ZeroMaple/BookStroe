@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 别名 -->
+	<typeAliases>
+		<typeAlias type="org.lanqiao.bean.User" alias="User"/>
+		<typeAlias type="org.lanqiao.bean.Products" alias="Products"/>
+		<typeAlias type="org.lanqiao.bean.Orders" alias="Orders"/>
+		<typeAlias type="org.lanqiao.bean.ShoppingCart" alias="ShoppingCart"/>
+		<typeAlias type="org.lanqiao.bean.Seller" alias="Seller"/>
+	</typeAliases>
+    <mappers>
+        <mapper resource="org/lanqiao/mapper/UserDaoMapper.xml"/>
+         <mapper resource="org/lanqiao/mapper/ProductsMapper.xml"/>
+          <mapper resource="org/lanqiao/mapper/OrdersMapper.xml"/>
+          <mapper resource="org/lanqiao/mapper/ShoppingCartMapper.xml"/>
+   </mappers>
+</configuration>

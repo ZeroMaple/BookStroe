@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="org.lanqiao.dao.ShoppingCartDao">
+ 	<resultMap id="getShoppingCartResultMap" type="ShoppingCart">
+ 		<id property="shoppingCartID" column="SHOPPING_CART_ID" />
+ 		<result property="shoppingCartQuantity" column="SHOPPING_CART_QUANTITY"/>
+ 		<result property="productId" column="PRODUCTID"/>
+ 		<result property="userId" column="USERID"/>
+ 		<association property="products" javaType="Products">
+ 			<id property="productId" column="PRODUCTID"/>
+ 			<result property="productName" column="PRODUCTNAME"/>
+ 			<result property="productMoney" column="PRODUCTMONEY"/>
+ 			<result property="productInformation" column="PRODUCTINFORMATION"/>
+ 			<result property="productsComment" column="PRODUCTSCOMMENT"/>
+ 			<result property="productsImage" column="PRODUCTSIMAGE"/>
+ 		</association>
+ 		<association property="seller" javaType="Seller">
+ 			<id property="SellerId" column="SELLERID"/>
+ 			<result property="SellerName" column="SELLERNAME"/>
+ 			<result property="SellerPhone" column="SELLERPHONE"/>
+ 			<result property="SellerEmail" column="SELLEREMAIL"/>
+ 			<result property="SellerPassWord" column="SELLERPASSWORD"/>
+ 			<result property="SellerDate" column="SELLERDATE"/>
+ 		</association>
+ 		<association property="user" javaType="User">
+ 			<id property="userId" column="USERID"/>
+ 			<result property="userName" column="USERNAME"/>
+ 			<result property="userPassword" column="USERPASSWORD"/>
+ 			<result property="usereMail" column="USEREMAIL"/>
+ 			<result property="userState" column="USERSTATE"/>
+ 			<result property="userKey" column="USERKEY"/>
+ 			<result property="userRole" column="USERROLE"/>
+ 			<result property="userupdate" column="USERUPDATE"/>
+ 			<result property="userSex" column="USERSEX"/>
+ 		</association>
+ 		
+ 	</resultMap>
+ 	<!-- 购物车 -->
+ 	<select id="getShoppingCart" resultMap="getShoppingCartResultMap" parameterType="ShoppingCart">
+ 	<![CDATA[
+ 		select sj.sellername,p.productsimage,p.productname,p.productmoney,s.shopping_cart_quantity from products p left join seller sj on(p.SELLERID=sj.SELLERID) left join shopping_cart s on(s.productid=p.productid) where s.userId=#{userId,jdbcType=INTEGER}
+ 	]]>
+ 	</select>
+ 	<select id="getSellerLogin"  parameterType="Seller" resultType="Seller">
+ 	<![CDATA[
+ 	select* from Seller where SellerEmail=#{SellerEmail} and SellerPassWord=#{SellerPassWord}
+ ]]>
+ 	</select>
+ 	<select id="getProduct"  parameterType="Seller" resultType="org.lanqiao.bean.Products">
+ 	select * from products where sellerid=#{sellerId}
+ 	</select>
+ </mapper>

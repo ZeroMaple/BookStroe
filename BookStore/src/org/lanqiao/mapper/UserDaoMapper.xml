@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="org.lanqiao.dao.UserDao">
+  	<select id="getUserByUserNameAndUserPassWord" parameterType="User" resultType="User">
+  	select * from users where useremail=#{usereMail} and userpassword=#{userPassword}
+  	</select>
+  	<select id="getUserByUserName" resultType="User" parameterType="User">
+  	select useremail from users where useremail=#{usereMail}
+  	</select>
+  	<select id="adduser" parameterType="User">
+     insert into users (username,useremail,userpassword,userkey)values(#{userName},#{usereMail},#{userPassword},#{userKey})
+  	</select>
+  	<select id="UserState" parameterType="User">
+    update users set userstate='已激活' where usereMail=#{usereMail}
+  	</select>
+  	<select id="getAll" resultType="User" parameterType="User">
+  	select*from users where useremail=#{usereMail}
+  	</select>
+  	<update id="updateUser" parameterType="User">
+  	update users set
+  	<choose>
+  	<when test="userPhone!=null">
+  	userphone=#{userPhone}
+  	</when>
+  	<when test="userPassword!=null">
+  	userpassword=#{userPassword}
+  	</when>
+  	<when test="userSex!=null">
+  	usersex=#{userSex}
+  	</when>
+  	<when test="userAge!=null">
+  	userage=#{userAge}
+  	</when>
+  	<when test="userContent!=null">
+  	usercontent=#{userContent}
+  	</when>
+  	<when test="userName!=null">
+  	username=#{userName}
+  	</when>
+  	</choose>
+  where useremail=#{usereMail}
+  	</update>
+  </mapper>
